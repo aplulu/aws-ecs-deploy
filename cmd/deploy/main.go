@@ -50,6 +50,11 @@ func main() {
 	ntdf := fmt.Sprintf("%s:%d", *ntd.Family, *ntd.Revision)
 	fmt.Printf("Registered New TaskDefinition: %s\n", *ntd.TaskDefinitionArn)
 
+	if conf.Service == "" {
+		fmt.Printf("Deployed.\n")
+		os.Exit(0)
+	}
+
 	if err := updateService(svc, conf.Cluster, conf.Service, ntdf); err != nil {
 		fmt.Printf("Failed to update Service: %v\n", err)
 		os.Exit(1)

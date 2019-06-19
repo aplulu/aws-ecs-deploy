@@ -13,7 +13,7 @@ type Config struct {
 	TaskDefinition string `envconfig:"task_definition" required:"true"`
 	Container      string `envconfig:"container" required:"true"`
 	Cluster        string `envconfig:"cluster" required:"true"`
-	Service        string `envconfig:"service" required:"true"`
+	Service        string `envconfig:"service"`
 	Image          string `envconfig:"image" required:"true"`
 	WaitSleep      int    `envconfig:"wait_sleep" default:"3"`
 	WaitCount      int    `envconfig:"wait_count" default:"30"`
